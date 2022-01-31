@@ -5,7 +5,7 @@
             "urlImg": "/imagenes/de.png",
             "poblation": "81.770.900",
             "capital": "Berlin",
-            "description": " ",
+            "description": "Alemania tiene más de 5000 tipos de cerveza",
             "region": "Europe"
         },
         {
@@ -14,7 +14,7 @@
             "urlImg": "/imagenes/us.png",
             "poblation": "323.947.000",
             "capital": "Washigton D.C",
-            "description": "",
+            "description": "Estados Unidos es un país donde se hablan más de 300 idiomas!",
             "region": "Americas"
         },
         {
@@ -23,16 +23,16 @@
             "urlImg": "/imagenes/br.png",
             "poblation": "206.135.893",
             "capital": "Brasilia",
-            "description": "",
+            "description": " Brasil es el único país de América del Sur dónde el idioma oficial no es el español",
             "region": "Americas"
         },
         {
             "id": "4",
-            "name": "Iceland",
+            "name": "Islanlandia",
             "urlImg": "/imagenes/ice.png",
             "poblation": "334.300",
             "capital": "Reykjavk",
-            "description": "",
+            "description": "No hay hormigas",
             "region": "Europe"
         },
         {
@@ -41,16 +41,16 @@
             "urlImg": "/imagenes/af.png",
             "poblation": "27.657.145",
             "capital": "Kabul",
-            "description": "",
+            "description": "Afganistán tiene frontera con seis países pero carece de salida al mar",
             "region": "Asia"
         },
         {
             "id": "6",
-            "name": "Aland Islands",
+            "name": "Islas Åland",
             "urlImg": "/imagenes/ala.png",
             "poblation": "28.875",
             "capital": "Mariehamm",
-            "description": "",
+            "description": "Las Islas Åland son un grupo de islas en el Golfo de Botnia, entre Suecia y Finlandia. El pequeño estado tiene un área total de 1,580 km²",
             "region": "Europe"
         },
         {
@@ -59,7 +59,7 @@
             "urlImg": "/imagenes/al.png",
             "poblation": "2.886.026",
             "capital": "Tirana",
-            "description": "",
+            "description": "Los albaneses no llaman Albania a su país ",
             "region": "Europe"
         },
         {
@@ -68,7 +68,7 @@
             "urlImg": "/imagenes/alg.png",
             "poblation": "40.400.000",
             "capital": "Algiers",
-            "description": "",
+            "description": "Argelia cuenta con siete sitios de la UNESCO",
             "region": "Africa"
         },
         {
@@ -77,7 +77,7 @@
             "urlImg": "/imagenes/arg.png",
             "poblation": "45.605.826",
             "capital": "Buenos Aires",
-            "description": "",
+            "description": " La avenida más ancha del mundo.",
             "region": "Americas"
         },
         {
@@ -86,17 +86,17 @@
             "urlImg": "/imagenes/col.png",
             "poblation": "50.770.900",
             "capital": "Bogota",
-            "description": "",
+            "description": "Colombia es el país con mayor diversidad de aves",
             "region": "Americas"
         },
         {
             "id": "11",
-            "name": "Germany",
-            "urlImg": "/imagenes/de.png",
-            "poblation": "81.770.900",
-            "capital": "Berlin",
-            "description": "",
-            "region": "Europe"
+            "name": "Venezuela",
+            "urlImg": "/imagenes/ve.png",
+            "poblation": "28.150.900",
+            "capital": "Caracas",
+            "description": "El nombre de Venezuela viene del italiano",
+            "region": "Americas"
         }
     ]
 }

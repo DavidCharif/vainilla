@@ -49,12 +49,12 @@ const banderillas = data => {
         `
        
     });
-    let card = document.querySelectorAll(".card")
+    /* let card = document.querySelectorAll(".card")
     card.forEach(article => {
         article.addEventListener("click", e=> {
             detalle(e)
         })
-    })
+    }) */
     
 
 }
@@ -114,9 +114,9 @@ inputBusqueda.addEventListener("click", (e) => {
     buscarInput()
 })
 
-const detalle = (e) => {
+/* const detalle = (e) => {
     console.log(e.target.getAttribute("data-value"));
-    }
+    } */
 // modo oscuro
 
 const btnDark = document.querySelector('.btn-dark-mode');
