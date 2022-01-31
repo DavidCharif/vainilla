@@ -7,7 +7,7 @@ const inputBusqueda = document.getElementById('inputFormulario');
 const article = document.getElementById("article")
 
 let paises;
-let cardPaises = []
+let cardPaises = [];
 // Funciones
 
 const fetchData = async() => {
@@ -21,15 +21,8 @@ const fetchData = async() => {
 const banderillas = data => {
 
     data.forEach(item => {
-<<<<<<< HEAD
-        let { name, urlImg, poblation, capital, region } = item;
-       
-        /*  console.log('name', name); */
-
-=======
         let { name, urlImg, poblation, capital, region, description } = item;
         console.log('name', name);
->>>>>>> 0c554afd681e110fe27e03c202637a0c3307855a
         banderas.innerHTML += `
         <article class="card" data-bs-toggle="modal" data-bs-target="#exampleModal">
         
