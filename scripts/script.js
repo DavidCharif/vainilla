@@ -18,11 +18,9 @@ const fetchData = async() => {
 const banderillas = data => {
 
     data.forEach(item => {
-
         let { name, urlImg, poblation, capital, region } = item;
-        console.log('name', name);
-        let { name, urlImg, poblation, capital, region } = item;
-        /*  console.log('name', name); */
+      
+        
 
         banderas.innerHTML += `
         <article class="card">
@@ -113,13 +111,10 @@ const buscarInput = async() => {
     })
     console.log(arrayFilter)
 }
-inputBusqueda.addEventListener("click", (e) => {
+inputBusqueda.addEventListener ("onkeyup", async(e) => {
     e.preventDefault()
-    buscarInput()
+    await buscarInput()
 })
-
-
-
 // formulario
 /* 
 const formulario = document.getElementById('formulario');
