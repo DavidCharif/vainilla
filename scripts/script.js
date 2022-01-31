@@ -1,22 +1,40 @@
+// Funcion que llega desde el controlador
 import { getPaises } from "../controllador/controllador.js";
+//ELementos dom
 const select = document.getElementById("selects");
+<<<<<<< HEAD
 
 
 // Vanessa
+=======
+>>>>>>> 31c6819c14ffea1f25ad55cd9753d504226f1a93
 const banderas = document.getElementById('banderas')
-const query = new URLSearchParams(window.location.search)
-const params = query.get('name')
-console.log(params)
+const inputBusqueda = document.getElementById('inputFormulario');
+const article = document.getElementById("article")
 
+<<<<<<< HEAD
 const fetchData = async () => {
     let banderas = await getPaises()
     console.log(banderas)
     banderillas(banderas)
+=======
+let paises;
+let cardPaises = []
+// Funciones
+
+const fetchData = async() => {
+    if (paises == null){
+        paises = await getPaises()
+    }   
+        /* console.log(banderas) */
+    banderillas(paises)
+>>>>>>> 31c6819c14ffea1f25ad55cd9753d504226f1a93
 }
 
 const banderillas = data => {
 
     data.forEach(item => {
+<<<<<<< HEAD
         let { name, urlImg, poblation, capital, region, description } = item;
         console.log('name', name);
         banderas.innerHTML += `
@@ -42,6 +60,18 @@ const banderillas = data => {
             
             <div class="card-content">
         
+=======
+
+        let { name, urlImg, poblation, capital, region } = item;
+       
+        /*  console.log('name', name); */
+
+        banderas.innerHTML += `
+        <div 
+        <article class="card" data-value="${name}">
+            <img src="${urlImg}" alt="" class="img-fluid" data-value="${name}">
+            <div class="card-content" data-value="${name}">
+>>>>>>> 31c6819c14ffea1f25ad55cd9753d504226f1a93
                 <h3>${name}</h3>
                 <p>
                     <b>Population: </b>
@@ -58,31 +88,47 @@ const banderillas = data => {
             </div>
         </article>
         `
+       
     });
+<<<<<<< HEAD
 
 }
 
 const extraerRegiones = async () => {
+=======
+    /* let card = document.querySelectorAll(".card")
+    card.forEach(article => {
+        article.addEventListener("click", e=> {
+            detalle(e)
+        })
+    }) */
+    
+
+}
+
+const extraerRegiones = async() => {
+>>>>>>> 31c6819c14ffea1f25ad55cd9753d504226f1a93
     let regiones = []
     let array = await getPaises();
     array.forEach((pais) => {
         let { region } = pais;
         if (!regiones.includes(region)) {
             regiones.push(region);
-            select.innerHTML += `
-            <option id="${region}" value="${region}">${region}</option> `
+            select.innerHTML += `<option id="${region}" value="${region}">${region}</option>`
         }
     })
 }
 
-const filtrarRegiones = async () => {
+const filtrarRegiones = async() => {
     let paises = await getPaises()
     let regionInput = ""
     select.addEventListener("click", e => {
-        console.log(e.target.value);
+        /* console.log(e.target.value); */
+        
         regionInput = e.target.value;
-        //Dejamos en blanco el body
+        console.log(regionInput);
         banderas.innerHTML = ""
+<<<<<<< HEAD
         // Itineramos por los paises
         paises.forEach((pais) => {
             // Extraemos los datos 
@@ -113,44 +159,56 @@ const filtrarRegiones = async () => {
                 `
             }
         })
+=======
+        //Dejamos en blanco el body
+        if(regionInput === "todos"){
+            banderillas(paises)
+        } else {
+            let nuevaArray = paises.filter(pais => regionInput === pais.region);
+            banderillas(nuevaArray);
+        }
+        
+            // Itineramos por los paises
+            
+>>>>>>> 31c6819c14ffea1f25ad55cd9753d504226f1a93
     })
 
 
 
 }
+<<<<<<< HEAD
 const buscarInput = async () => {
 
+=======
+const buscarInput = async() => {
+    let paises = await getPaises();
+    console.log(inputBusqueda.value)
+    let inputMinuscula =  inputBusqueda.value.toLowerCase()
+
+    let arrayFilter = paises.filter(pais => 
+        pais.name.toLowerCase().includes(inputMinuscula))
+    banderas.innerHTML = "";
+
+    //html
+    banderillas(arrayFilter)
+    console.log(arrayFilter)
+>>>>>>> 31c6819c14ffea1f25ad55cd9753d504226f1a93
 }
 
+inputBusqueda.addEventListener("click", (e) => {
+    e.preventDefault()
+    buscarInput()
+})
 
-
-
-// formulario
-/* 
-const formulario = document.getElementById('formulario');
-const inputFormulario = document.getElementById('inputFormulario');
-
-const formularioCliente = data => {
-    formulario.addEventListener('keyup', e => {
-        e.preventDefault()
-        const letraCliente = inputFormulario.value.toLowerCase()
-        // console.log(letraCliente)
-        const arrayFiltrado = data.filter(item => {
-            const letraApi = item.name.toLowerCase()
-            if (letraApi.indexOf(letraCliente) !== -1) {
-                return item
-            }
-        })
-        banderillas(arrayFiltrado)
-    })
-} */
-
+/* const detalle = (e) => {
+    console.log(e.target.getAttribute("data-value"));
+    } */
 // modo oscuro
 
 const btnDark = document.querySelector('.btn-dark-mode');
 
 btnDark.addEventListener('click', () => {
-    console.log('diste click')
+    /* console.log('diste click') */
     document.body.classList.toggle('dark-mode');
 
     if (document.body.className === 'dark-mode') {
@@ -167,9 +225,15 @@ btnDark.addEventListener('click', () => {
 })
 
 
+<<<<<<< HEAD
 
 
 document.addEventListener("DOMContentLoaded", fetchData)
 document.addEventListener("DOMContentLoaded", extraerRegiones)
 document.addEventListener("DOMContentLoaded", filtrarRegiones)
 
+=======
+document.addEventListener("DOMContentLoaded", fetchData)
+document.addEventListener("DOMContentLoaded", extraerRegiones)
+document.addEventListener("DOMContentLoaded", filtrarRegiones)
+>>>>>>> 31c6819c14ffea1f25ad55cd9753d504226f1a93
