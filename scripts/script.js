@@ -2,14 +2,11 @@ import { getPaises } from "../controllador/controllador.js";
 const select = document.getElementById("selects");
 
 
-
 // Vanessa
 const banderas = document.getElementById('banderas')
 const query = new URLSearchParams(window.location.search)
 const params = query.get('name')
 console.log(params)
-
-
 
 const fetchData = async () => {
     let banderas = await getPaises()
@@ -18,14 +15,33 @@ const fetchData = async () => {
 }
 
 const banderillas = data => {
-    
+
     data.forEach(item => {
-        let {name,urlImg,poblation,capital,region} = item;
+        let { name, urlImg, poblation, capital, region, description } = item;
         console.log('name', name);
         banderas.innerHTML += `
-        <article class="card">
-            <img src="${urlImg}" alt="" class="img-fluid">
+        <article class="card" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        
+            <img src="${urlImg}" alt="" class="img-fluid" >
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Datos curiosos</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <img src="${urlImg}" alt="" class="img-fluid" >
+            ${description}
+            </div>
+            <div class="modal-footer">
+            </div>
+            </div>
+             </div>
+            </div>
+            
             <div class="card-content">
+        
                 <h3>${name}</h3>
                 <p>
                     <b>Population: </b>
@@ -43,15 +59,15 @@ const banderillas = data => {
         </article>
         `
     });
-    
+
 }
 
-const extraerRegiones =  async () => {
+const extraerRegiones = async () => {
     let regiones = []
     let array = await getPaises();
     array.forEach((pais) => {
-        let {region} = pais;
-        if (!regiones.includes(region)){
+        let { region } = pais;
+        if (!regiones.includes(region)) {
             regiones.push(region);
             select.innerHTML += `
             <option id="${region}" value="${region}">${region}</option> `
@@ -70,12 +86,12 @@ const filtrarRegiones = async () => {
         // Itineramos por los paises
         paises.forEach((pais) => {
             // Extraemos los datos 
-            let {name,urlImg,poblation,capital,region} = pais;
+            let { name, urlImg, poblation, capital, region } = pais;
             // comparamos el select con los existentes
-            if (regionInput == region){
+            if (regionInput == region) {
                 //Si concuerda los imprimimos
                 //console.log('pais.name', name);
-                banderas.innerHTML +=  `
+                banderas.innerHTML += `
                 <article class="card">
                 <img src="${urlImg}" alt="" class="img-fluid">
                 <div class="card-content">
@@ -98,12 +114,12 @@ const filtrarRegiones = async () => {
             }
         })
     })
-    
-    
-    
+
+
+
 }
 const buscarInput = async () => {
-    
+
 }
 
 
@@ -153,6 +169,7 @@ btnDark.addEventListener('click', () => {
 
 
 
-    document.addEventListener("DOMContentLoaded",fetchData)
-    document.addEventListener("DOMContentLoaded",extraerRegiones)
-    document.addEventListener("DOMContentLoaded",filtrarRegiones)
+document.addEventListener("DOMContentLoaded", fetchData)
+document.addEventListener("DOMContentLoaded", extraerRegiones)
+document.addEventListener("DOMContentLoaded", filtrarRegiones)
+

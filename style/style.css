@@ -124,6 +124,17 @@ body.dark-mode {
     margin-bottom: 2rem;
 }
 
+.modal-body{
+    background-color:rgb(157, 171, 207) ;
+}
+
+.modal-header{
+    background-color: rgb(157, 171, 207);
+}
+
+.modal-footer{
+    background-color:rgb(157, 171, 207) ;
+}
 @media (max-width: 1000px){
     .grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
