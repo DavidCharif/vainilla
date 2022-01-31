@@ -2,22 +2,10 @@
 import { getPaises } from "../controllador/controllador.js";
 //ELementos dom
 const select = document.getElementById("selects");
-<<<<<<< HEAD
-
-
-// Vanessa
-=======
->>>>>>> 31c6819c14ffea1f25ad55cd9753d504226f1a93
 const banderas = document.getElementById('banderas')
 const inputBusqueda = document.getElementById('inputFormulario');
 const article = document.getElementById("article")
 
-<<<<<<< HEAD
-const fetchData = async () => {
-    let banderas = await getPaises()
-    console.log(banderas)
-    banderillas(banderas)
-=======
 let paises;
 let cardPaises = []
 // Funciones
@@ -28,13 +16,11 @@ const fetchData = async() => {
     }   
         /* console.log(banderas) */
     banderillas(paises)
->>>>>>> 31c6819c14ffea1f25ad55cd9753d504226f1a93
 }
 
 const banderillas = data => {
 
     data.forEach(item => {
-<<<<<<< HEAD
         let { name, urlImg, poblation, capital, region, description } = item;
         console.log('name', name);
         banderas.innerHTML += `
@@ -60,18 +46,6 @@ const banderillas = data => {
             
             <div class="card-content">
         
-=======
-
-        let { name, urlImg, poblation, capital, region } = item;
-       
-        /*  console.log('name', name); */
-
-        banderas.innerHTML += `
-        <div 
-        <article class="card" data-value="${name}">
-            <img src="${urlImg}" alt="" class="img-fluid" data-value="${name}">
-            <div class="card-content" data-value="${name}">
->>>>>>> 31c6819c14ffea1f25ad55cd9753d504226f1a93
                 <h3>${name}</h3>
                 <p>
                     <b>Population: </b>
@@ -90,24 +64,10 @@ const banderillas = data => {
         `
        
     });
-<<<<<<< HEAD
 
 }
 
 const extraerRegiones = async () => {
-=======
-    /* let card = document.querySelectorAll(".card")
-    card.forEach(article => {
-        article.addEventListener("click", e=> {
-            detalle(e)
-        })
-    }) */
-    
-
-}
-
-const extraerRegiones = async() => {
->>>>>>> 31c6819c14ffea1f25ad55cd9753d504226f1a93
     let regiones = []
     let array = await getPaises();
     array.forEach((pais) => {
@@ -128,38 +88,6 @@ const filtrarRegiones = async() => {
         regionInput = e.target.value;
         console.log(regionInput);
         banderas.innerHTML = ""
-<<<<<<< HEAD
-        // Itineramos por los paises
-        paises.forEach((pais) => {
-            // Extraemos los datos 
-            let { name, urlImg, poblation, capital, region } = pais;
-            // comparamos el select con los existentes
-            if (regionInput == region) {
-                //Si concuerda los imprimimos
-                //console.log('pais.name', name);
-                banderas.innerHTML += `
-                <article class="card">
-                <img src="${urlImg}" alt="" class="img-fluid">
-                <div class="card-content">
-                    <h3>${name}</h3>
-                    <p>
-                        <b>Population: </b>
-                        ${poblation}
-                    </p>
-                    <p>
-                        <b>Capital: </b>
-                        ${capital}
-                    </p>
-                    <p>
-                        <b>Región: </b>
-                        ${region}
-                    </p>
-                </div>
-            </article>
-                `
-            }
-        })
-=======
         //Dejamos en blanco el body
         if(regionInput === "todos"){
             banderillas(paises)
@@ -170,16 +98,11 @@ const filtrarRegiones = async() => {
         
             // Itineramos por los paises
             
->>>>>>> 31c6819c14ffea1f25ad55cd9753d504226f1a93
     })
 
 
 
 }
-<<<<<<< HEAD
-const buscarInput = async () => {
-
-=======
 const buscarInput = async() => {
     let paises = await getPaises();
     console.log(inputBusqueda.value)
@@ -192,7 +115,6 @@ const buscarInput = async() => {
     //html
     banderillas(arrayFilter)
     console.log(arrayFilter)
->>>>>>> 31c6819c14ffea1f25ad55cd9753d504226f1a93
 }
 
 inputBusqueda.addEventListener("click", (e) => {
@@ -225,15 +147,6 @@ btnDark.addEventListener('click', () => {
 })
 
 
-<<<<<<< HEAD
-
-
 document.addEventListener("DOMContentLoaded", fetchData)
 document.addEventListener("DOMContentLoaded", extraerRegiones)
 document.addEventListener("DOMContentLoaded", filtrarRegiones)
-
-=======
-document.addEventListener("DOMContentLoaded", fetchData)
-document.addEventListener("DOMContentLoaded", extraerRegiones)
-document.addEventListener("DOMContentLoaded", filtrarRegiones)
->>>>>>> 31c6819c14ffea1f25ad55cd9753d504226f1a93

@@ -29,7 +29,7 @@
         {
             "id": "4",
             "name": "Islandia",
-            "urlImg": "/imagenes/ice.png",
+            "urlImg": "imagenes/ice.png",
             "poblation": "334.300",
             "capital": "Reykjavk",
             "description": ["No hay hormigas","No tienen ningún McDonald's","No hay Ejército."],
@@ -47,7 +47,7 @@
         {
             "id": "6",
             "name": "Islas Åland",
-            "urlImg": "/imagenes/ala.png",
+            "urlImg": "imagenes/ala.png",
             "poblation": "28.875",
             "capital": "Mariehamm",
             "description": "Las Islas Åland son un grupo de islas en el Golfo de Botnia, entre Suecia y Finlandia. El pequeño estado tiene un área total de 1,580 km²",
@@ -92,7 +92,7 @@
         {
             "id": "11",
             "name": "Venezuela",
-            "urlImg": "/imagenes/ve.png",
+            "urlImg": "imagenes/ve.png",
             "poblation": "28.150.900",
             "capital": "Caracas",
             "description": ["El nombre de Venezuela viene del italiano","El lago más grande de Suramérica: Lago Maracaibo","La cascada más alta del planeta: El salto del ángel"],
