@@ -4,10 +4,10 @@ import { getPaises } from "../controllador/controllador.js";
 const select = document.getElementById("selects");
 const banderas = document.getElementById('banderas')
 const inputBusqueda = document.getElementById('inputFormulario');
-const article = document.getElementById("article")
+
 
 let paises;
-let cardPaises = []
+
 // Funciones
 
 const fetchData = async() => {
@@ -22,12 +22,13 @@ const banderillas = data => {
 
     data.forEach(item => {
         let { name, urlImg, poblation, capital, region, description } = item;
-        console.log('name', name);
+        
+        
         banderas.innerHTML += `
-        <article class="card" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <article class="card" data-bs-toggle="modal" data-bs-target="#${name.slice(0,5)}">
         
             <img src="${urlImg}" alt="" class="img-fluid" >
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="${name.slice(0,5)}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
