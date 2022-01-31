@@ -1,26 +1,21 @@
 import { getPaises } from "../controllador/controllador.js";
 const select = document.getElementById("selects");
-
-
-
 // Vanessa
 const banderas = document.getElementById('banderas')
-const query = new URLSearchParams(window.location.search)
-const params = query.get('name')
-console.log(params)
+const inputBusqueda = document.getElementById('inputFormulario');
 
+//console.log(params
 
-
-const fetchData = async () => {
+const fetchData = async() => {
     let banderas = await getPaises()
     console.log(banderas)
     banderillas(banderas)
 }
 
 const banderillas = data => {
-    
+
     data.forEach(item => {
-        let {name,urlImg,poblation,capital,region} = item;
+        let { name, urlImg, poblation, capital, region } = item;
         console.log('name', name);
         banderas.innerHTML += `
         <article class="card">
@@ -43,15 +38,15 @@ const banderillas = data => {
         </article>
         `
     });
-    
+
 }
 
-const extraerRegiones =  async () => {
+const extraerRegiones = async() => {
     let regiones = []
     let array = await getPaises();
     array.forEach((pais) => {
-        let {region} = pais;
-        if (!regiones.includes(region)){
+        let { region } = pais;
+        if (!regiones.includes(region)) {
             regiones.push(region);
             select.innerHTML += `
             <option id="${region}" value="${region}">${region}</option> `
@@ -59,7 +54,7 @@ const extraerRegiones =  async () => {
     })
 }
 
-const filtrarRegiones = async () => {
+const filtrarRegiones = async() => {
     let paises = await getPaises()
     let regionInput = ""
     select.addEventListener("click", e => {
@@ -67,15 +62,15 @@ const filtrarRegiones = async () => {
         regionInput = e.target.value;
         //Dejamos en blanco el body
         banderas.innerHTML = ""
-        // Itineramos por los paises
+            // Itineramos por los paises
         paises.forEach((pais) => {
             // Extraemos los datos 
-            let {name,urlImg,poblation,capital,region} = pais;
+            let { name, urlImg, poblation, capital, region } = pais;
             // comparamos el select con los existentes
-            if (regionInput == region){
+            if (regionInput == region) {
                 //Si concuerda los imprimimos
                 //console.log('pais.name', name);
-                banderas.innerHTML +=  `
+                banderas.innerHTML += `
                 <article class="card">
                 <img src="${urlImg}" alt="" class="img-fluid">
                 <div class="card-content">
@@ -98,14 +93,23 @@ const filtrarRegiones = async () => {
             }
         })
     })
-    
-    
-    
-}
-const buscarInput = async () => {
-    
-}
 
+
+
+}
+const buscarInput = async() => {
+    let paises = await getPaises();
+    let arrayFilter = paises.filter((pais) => {
+        (inputBusqueda.value.toLowerCase() === pais.name.toLowerCase())
+
+
+    })
+    console.log(arrayFilter)
+}
+inputBusqueda.addEventListener("click", (e) => {
+    e.preventDefault()
+    buscarInput()
+})
 
 
 
@@ -151,8 +155,6 @@ btnDark.addEventListener('click', () => {
 })
 
 
-
-
-    document.addEventListener("DOMContentLoaded",fetchData)
-    document.addEventListener("DOMContentLoaded",extraerRegiones)
-    document.addEventListener("DOMContentLoaded",filtrarRegiones)
+document.addEventListener("DOMContentLoaded", fetchData)
+document.addEventListener("DOMContentLoaded", extraerRegiones)
+document.addEventListener("DOMContentLoaded", filtrarRegiones)
