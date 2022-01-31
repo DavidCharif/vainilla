@@ -4,12 +4,8 @@ import { getPaises } from "../controllador/controllador.js";
 const select = document.getElementById("selects");
 const banderas = document.getElementById('banderas')
 const inputBusqueda = document.getElementById('inputFormulario');
-const article = document.getElementById("article")
-
 let paises;
-let cardPaises = [];
 // Funciones
-
 const fetchData = async() => {
     if (paises == null){
         paises = await getPaises()
@@ -17,15 +13,12 @@ const fetchData = async() => {
         /* console.log(banderas) */
     banderillas(paises)
 }
-
 const banderillas = data => {
-
     data.forEach(item => {
         let { name, urlImg, poblation, capital, region, description } = item;
-        console.log('name', name);
+        //console.log('name', name);
         banderas.innerHTML += `
         <article class="card" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        
             <img src="${urlImg}" alt="" class="img-fluid" >
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -35,7 +28,7 @@ const banderillas = data => {
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-            <img src="${urlImg}" alt="" class="img-fluid" >
+            <img src="${urlImg}" alt="" class="img" width="100px">Descripcion:
             ${description}
             </div>
             <div class="modal-footer">
@@ -114,12 +107,12 @@ const buscarInput = async() => {
 
     //html
     banderillas(arrayFilter)
-    console.log(arrayFilter)
+    //console.log(arrayFilter)
 }
 
 inputBusqueda.addEventListener("click", (e) => {
     e.preventDefault()
-    await buscarInput()
+     buscarInput()
 })
 
 /* const detalle = (e) => {
