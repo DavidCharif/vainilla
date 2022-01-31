@@ -4,14 +4,18 @@ import { getPaises } from "../controllador/controllador.js";
 const select = document.getElementById("selects");
 const banderas = document.getElementById('banderas')
 const inputBusqueda = document.getElementById('inputFormulario');
-const article = document.querySelectorAll(".card")
+const article = document.getElementById("article")
 
+let paises;
+let cardPaises = []
 // Funciones
 
 const fetchData = async() => {
-    let banderas = await getPaises()
+    if (paises == null){
+        paises = await getPaises()
+    }   
         /* console.log(banderas) */
-    banderillas(banderas)
+    banderillas(paises)
 }
 
 const banderillas = data => {
@@ -23,9 +27,10 @@ const banderillas = data => {
         /*  console.log('name', name); */
 
         banderas.innerHTML += `
-        <article class="card">
-            <img src="${urlImg}" alt="" class="img-fluid">
-            <div class="card-content">
+        <div 
+        <article class="card" data-value="${name}">
+            <img src="${urlImg}" alt="" class="img-fluid" data-value="${name}">
+            <div class="card-content" data-value="${name}">
                 <h3>${name}</h3>
                 <p>
                     <b>Population: </b>
@@ -42,7 +47,15 @@ const banderillas = data => {
             </div>
         </article>
         `
+       
     });
+    let card = document.querySelectorAll(".card")
+    card.forEach(article => {
+        article.addEventListener("click", e=> {
+            detalle(e)
+        })
+    })
+    
 
 }
 
@@ -63,12 +76,20 @@ const filtrarRegiones = async() => {
     let regionInput = ""
     select.addEventListener("click", e => {
         /* console.log(e.target.value); */
+        
         regionInput = e.target.value;
-        //Dejamos en blanco el body
+        console.log(regionInput);
         banderas.innerHTML = ""
-            // Itineramos por los paises
+        //Dejamos en blanco el body
+        if(regionInput === "todos"){
+            banderillas(paises)
+        } else {
             let nuevaArray = paises.filter(pais => regionInput === pais.region);
             banderillas(nuevaArray);
+        }
+        
+            // Itineramos por los paises
+            
     })
 
 
@@ -92,34 +113,10 @@ inputBusqueda.addEventListener("click", (e) => {
     e.preventDefault()
     buscarInput()
 })
-article.forEach(e => {
-    console.log(e);
-    e.addEventListener("click",(evento) =>{
-        console.log("evento")
-    })
-})
 
-
-// formulario
-/* 
-const formulario = document.getElementById('formulario');
-const inputFormulario = document.getElementById('inputFormulario');
-
-const formularioCliente = data => {
-    formulario.addEventListener('keyup', e => {
-        e.preventDefault()
-        const letraCliente = inputFormulario.value.toLowerCase()
-        // console.log(letraCliente)
-        const arrayFiltrado = data.filter(item => {
-            const letraApi = item.name.toLowerCase()
-            if (letraApi.indexOf(letraCliente) !== -1) {
-                return item
-            }
-        })
-        banderillas(arrayFiltrado)
-    })
-} */
-
+const detalle = (e) => {
+    console.log(e.target.getAttribute("data-value"));
+    }
 // modo oscuro
 
 const btnDark = document.querySelector('.btn-dark-mode');
