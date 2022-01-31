@@ -22,9 +22,11 @@ body {
 }
 
 body.dark-mode {
+    
     --color-bg: #212E37;
     --color-bg-secondary: #2B3743;
     --color-text: #ffffff;
+    background-color: var(--color-bg);
 }
 
 .container {

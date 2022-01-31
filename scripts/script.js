@@ -1,50 +1,49 @@
+import { getPaises } from "../controllador/controllador.js";
+
+
+
+
+// Vanessa
 const banderas = document.getElementById('banderas')
 const query = new URLSearchParams(window.location.search)
 const params = query.get('name')
 console.log(params)
 
-document.addEventListener("DOMContentLoaded", e => {
-    fetchData()
-})
+
 
 const fetchData = async () => {
-    try {
-        const res = await fetch('api.json')
-        const data = await res.json()
-        
-        const filtroData = data.filter(item => item.name === params)
-
-        banderillas(filtroData)
-    } catch (error) {
-        console.log(error)
-    }
+    let banderas = await getPaises()
+    console.log(banderas)
+    banderillas(banderas)
 }
 
 const banderillas = data => {
-    let elementos = ''
+    
     data.forEach(item => {
-        elementos += `
+        let {name,urlImg,poblation,capital,region} = item;
+        console.log('name', name);
+        banderas.innerHTML += `
         <article class="card">
-            <img src="${item.flag}" alt="" class="img-fluid">
+            <img src="${urlImg}" alt="" class="img-fluid">
             <div class="card-content">
-                <h3>${item.name}</h3>
+                <h3>${name}</h3>
                 <p>
                     <b>Population: </b>
-                    ${item.population}
+                    ${poblation}
                 </p>
                 <p>
                     <b>Capital: </b>
-                    ${item.capital}
+                    ${capital}
                 </p>
                 <p>
                     <b>Región: </b>
-                    ${item.region}
+                    ${region}
                 </p>
             </div>
         </article>
         `
     });
-    banderas.innerHTML = elementos
+    
 }
 
 
@@ -92,3 +91,6 @@ btnDark.addEventListener('click', () => {
 })
 
 
+
+
+    document.addEventListener("DOMContentLoaded",fetchData)
