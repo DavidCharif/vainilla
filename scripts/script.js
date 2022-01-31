@@ -11,8 +11,8 @@ console.log(params)
 
 
 
-const fetchData = () => {
-    let banderas = getPaises()
+const fetchData = async () => {
+    let banderas = await getPaises()
     console.log(banderas)
     banderillas(banderas)
 }
@@ -20,9 +20,9 @@ const fetchData = () => {
 const banderillas = data => {
     
     data.forEach(item => {
-        let {name,urlImg,poblation,capital} = item;
+        let {name,urlImg,poblation,capital,region} = item;
         console.log('name', name);
-        elementos += `
+        banderas.innerHTML += `
         <article class="card">
             <img src="${urlImg}" alt="" class="img-fluid">
             <div class="card-content">
@@ -43,7 +43,7 @@ const banderillas = data => {
         </article>
         `
     });
-    banderas.innerHTML = elementos
+    
 }
 
 
