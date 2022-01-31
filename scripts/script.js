@@ -1,13 +1,12 @@
+// Funcion que llega desde el controlador
 import { getPaises } from "../controllador/controllador.js";
+//ELementos dom
 const select = document.getElementById("selects");
-// Vanessa
 const banderas = document.getElementById('banderas')
 const inputBusqueda = document.getElementById('inputFormulario');
-const query = new URLSearchParams(window.location.search)
-const params = query.get('name')
-    /* console.log(params) */
+const article = document.querySelectorAll(".card")
 
-//console.log(params
+// Funciones
 
 const fetchData = async() => {
     let banderas = await getPaises()
@@ -79,9 +78,12 @@ const buscarInput = async() => {
     let paises = await getPaises();
     console.log(inputBusqueda.value)
     let inputMinuscula =  inputBusqueda.value.toLowerCase()
+
     let arrayFilter = paises.filter(pais => 
         pais.name.toLowerCase().includes(inputMinuscula))
     banderas.innerHTML = "";
+
+    //html
     banderillas(arrayFilter)
     console.log(arrayFilter)
 }
@@ -90,7 +92,12 @@ inputBusqueda.addEventListener("click", (e) => {
     e.preventDefault()
     buscarInput()
 })
-
+article.forEach(e => {
+    console.log(e);
+    e.addEventListener("click",(evento) =>{
+        console.log("evento")
+    })
+})
 
 
 // formulario
