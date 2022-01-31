@@ -33,7 +33,7 @@
             "poblation": "334.300",
             "capital": "Reykjavk",
             "description": "",
-            "region": "Europa"
+            "region": "Europe"
         },
         {
             "id": "5",
@@ -51,7 +51,7 @@
             "poblation": "28.875",
             "capital": "Mariehamm",
             "description": "",
-            "region": "Europa"
+            "region": "Europe"
         },
         {
             "id": "7",
@@ -60,7 +60,7 @@
             "poblation": "2.886.026",
             "capital": "Tirana",
             "description": "",
-            "region": "Europa"
+            "region": "Europe"
         },
         {
             "id": "8",
@@ -84,10 +84,10 @@
             "id": "10",
             "name": "Colombia",
             "urlImg": "/imagenes/col.png",
-            "poblation": "81.770.900",
-            "capital": "Berlin",
+            "poblation": "50.770.900",
+            "capital": "Bogota",
             "description": "",
-            "region": "Europe"
+            "region": "Americas"
         },
         {
             "id": "11",

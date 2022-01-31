@@ -1,5 +1,5 @@
 import { getPaises } from "../controllador/controllador.js";
-
+const select = document.getElementById("selects");
 
 
 
@@ -46,6 +46,24 @@ const banderillas = data => {
     
 }
 
+const extraerRegiones =  async () => {
+    let regiones = []
+    let array = await getPaises();
+    array.forEach((pais) => {
+        let {region} = pais;
+        if (!regiones.includes(region)){
+            regiones.push(region);
+            select.innerHTML += `
+            <option id="${region}" value="${region}">${region}</option> `
+        }
+    })
+}
+
+const filtrarRegiones = () => {
+    select.addEventListener("click", e => {
+        console.log(e.target.value);
+    })
+}
 
 
 
@@ -94,3 +112,5 @@ btnDark.addEventListener('click', () => {
 
 
     document.addEventListener("DOMContentLoaded",fetchData)
+    document.addEventListener("DOMContentLoaded",extraerRegiones)
+    document.addEventListener("DOMContentLoaded",filtrarRegiones)
