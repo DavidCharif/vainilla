@@ -3,20 +3,27 @@ const select = document.getElementById("selects");
 // Vanessa
 const banderas = document.getElementById('banderas')
 const inputBusqueda = document.getElementById('inputFormulario');
+const query = new URLSearchParams(window.location.search)
+const params = query.get('name')
+    /* console.log(params) */
 
 //console.log(params
 
 const fetchData = async() => {
     let banderas = await getPaises()
-    console.log(banderas)
+        /* console.log(banderas) */
     banderillas(banderas)
 }
 
 const banderillas = data => {
 
     data.forEach(item => {
+
         let { name, urlImg, poblation, capital, region } = item;
         console.log('name', name);
+        let { name, urlImg, poblation, capital, region } = item;
+        /*  console.log('name', name); */
+
         banderas.innerHTML += `
         <article class="card">
             <img src="${urlImg}" alt="" class="img-fluid">
@@ -58,7 +65,7 @@ const filtrarRegiones = async() => {
     let paises = await getPaises()
     let regionInput = ""
     select.addEventListener("click", e => {
-        console.log(e.target.value);
+        /* console.log(e.target.value); */
         regionInput = e.target.value;
         //Dejamos en blanco el body
         banderas.innerHTML = ""
@@ -138,7 +145,7 @@ const formularioCliente = data => {
 const btnDark = document.querySelector('.btn-dark-mode');
 
 btnDark.addEventListener('click', () => {
-    console.log('diste click')
+    /* console.log('diste click') */
     document.body.classList.toggle('dark-mode');
 
     if (document.body.className === 'dark-mode') {
