@@ -8,7 +8,8 @@
     <title>Banderas - La mejor pagina del mundo!</title>
     <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="./style/style2.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 </head>
 
@@ -17,27 +18,32 @@
         <div class="container navbar-content">
             <h1>Where in the world?</h1>
             <button class="btn-dark-mode">
-                <ion-icon name="moon-outline"></ion-icon>    
+                <ion-icon name="moon-outline"></ion-icon>
                 Dark Mode
             </button>
         </div>
     </nav>
-    <header class="container filter-content my-2">
-        <form class="form-search" id="formulario">
-            <input type="text" placeholder="Ingresa País" id="inputFormulario">
-        </form>
-        <div class="custom-select" style="width:200px;">
-            <select id="selects">
-                <option value="">Filtrar por Región</option>
-                <option value="">Todos</option>
-            </select>
-        </div>
-    </header>
-    <main class="container grid" id="banderas">
-    </main>
-    <script src="./scripts/script.js" type="module"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+       <header class="container filter-content my-2">
+            <form class="form-search" id="formulario">
+                <input type="text" placeholder="Ingresa País" id="inputFormulario">
+            </form>
+            <div class="custom-select" style="width:200px;">
+<label>Filtrar por Región
+                <select id="selects">
+                   
+                    <option value="todos">Todos</option>
+
+                </select>
+            </label>
+            </div>
+        </header>
+    
+        <main class="container grid" id="banderas">
+        </main>
+        <script src="./scripts/script.js" type="module"></script>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 
 </body>
