@@ -1,49 +1,43 @@
-<<<<<<< HEAD
 import { getPaises } from "../controllador/controllador.js";
 
-document.addEventListener("DOMdocumentLoaded",getPaises)
-=======
+
+
+
+// Vanessa
 const banderas = document.getElementById('banderas')
 const query = new URLSearchParams(window.location.search)
 const params = query.get('name')
 console.log(params)
 
-document.addEventListener("DOMContentLoaded", e => {
-    fetchData()
-})
 
-const fetchData = async () => {
-    try {
-        const res = await fetch('api.json')
-        const data = await res.json()
-        
-        const filtroData = data.filter(item => item.name === params)
 
-        banderillas(filtroData)
-    } catch (error) {
-        console.log(error)
-    }
+const fetchData = () => {
+    let banderas = getPaises()
+    console.log(banderas)
+    banderillas(banderas)
 }
 
 const banderillas = data => {
-    let elementos = ''
+    
     data.forEach(item => {
+        let {name,urlImg,poblation,capital} = item;
+        console.log('name', name);
         elementos += `
         <article class="card">
-            <img src="${item.flag}" alt="" class="img-fluid">
+            <img src="${urlImg}" alt="" class="img-fluid">
             <div class="card-content">
-                <h3>${item.name}</h3>
+                <h3>${name}</h3>
                 <p>
                     <b>Population: </b>
-                    ${item.population}
+                    ${poblation}
                 </p>
                 <p>
                     <b>Capital: </b>
-                    ${item.capital}
+                    ${capital}
                 </p>
                 <p>
                     <b>Región: </b>
-                    ${item.region}
+                    ${region}
                 </p>
             </div>
         </article>
@@ -197,4 +191,6 @@ const filtros = data => {
     
     }
 
->>>>>>> 3323adbb860ffb7c8c06d67e8217045171e0a483
+
+
+    document.addEventListener("DOMContentLoaded",fetchData)
