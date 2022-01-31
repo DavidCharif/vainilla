@@ -20,8 +20,7 @@ const banderillas = data => {
     data.forEach(item => {
 
         let { name, urlImg, poblation, capital, region } = item;
-        console.log('name', name);
-        let { name, urlImg, poblation, capital, region } = item;
+       
         /*  console.log('name', name); */
 
         banderas.innerHTML += `
@@ -55,8 +54,7 @@ const extraerRegiones = async() => {
         let { region } = pais;
         if (!regiones.includes(region)) {
             regiones.push(region);
-            select.innerHTML += `
-            <option id="${region}" value="${region}">${region}</option> `
+            select.innerHTML += `<option id="${region}" value="${region}">${region}</option>`
         }
     })
 }
@@ -70,35 +68,8 @@ const filtrarRegiones = async() => {
         //Dejamos en blanco el body
         banderas.innerHTML = ""
             // Itineramos por los paises
-        paises.forEach((pais) => {
-            // Extraemos los datos 
-            let { name, urlImg, poblation, capital, region } = pais;
-            // comparamos el select con los existentes
-            if (regionInput == region) {
-                //Si concuerda los imprimimos
-                //console.log('pais.name', name);
-                banderas.innerHTML += `
-                <article class="card">
-                <img src="${urlImg}" alt="" class="img-fluid">
-                <div class="card-content">
-                    <h3>${name}</h3>
-                    <p>
-                        <b>Population: </b>
-                        ${poblation}
-                    </p>
-                    <p>
-                        <b>Capital: </b>
-                        ${capital}
-                    </p>
-                    <p>
-                        <b>Región: </b>
-                        ${region}
-                    </p>
-                </div>
-            </article>
-                `
-            }
-        })
+            let nuevaArray = paises.filter(pais => regionInput === pais.region);
+            banderillas(nuevaArray);
     })
 
 
@@ -106,13 +77,15 @@ const filtrarRegiones = async() => {
 }
 const buscarInput = async() => {
     let paises = await getPaises();
-    let arrayFilter = paises.filter((pais) => {
-        (inputBusqueda.value.toLowerCase() === pais.name.toLowerCase())
-
-
-    })
+    console.log(inputBusqueda.value)
+    let inputMinuscula =  inputBusqueda.value.toLowerCase()
+    let arrayFilter = paises.filter(pais => 
+        pais.name.toLowerCase().includes(inputMinuscula))
+    banderas.innerHTML = "";
+    banderillas(arrayFilter)
     console.log(arrayFilter)
 }
+
 inputBusqueda.addEventListener("click", (e) => {
     e.preventDefault()
     buscarInput()
