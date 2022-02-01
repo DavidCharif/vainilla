@@ -24,7 +24,7 @@ const banderillas = data => {
         banderas.innerHTML += `
         <article class="card" data-bs-toggle="modal" data-bs-target="#${name.slice(0,5)}">
     
-            <img src="${urlImg}" alt="" class="img-fluid" >
+            <img src="${urlImg}" alt="" class="img" height="200px" >
             <div class="modal fade" id="${name.slice(0,5)}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
