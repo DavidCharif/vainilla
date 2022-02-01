@@ -115,7 +115,7 @@ const buscarInput = async() => {
     //console.log(arrayFilter)
 }
 
-inputBusqueda.addEventListener("click", (e) => {
+inputBusqueda.addEventListener("keyup", (e) => {
     e.preventDefault()
      buscarInput()
 })
